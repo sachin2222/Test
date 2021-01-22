@@ -187,14 +187,14 @@ formatter.match({
   "location": "Parameterized_Test.user_have_Required_Payload(String,String,String,int,double,double,String,String)"
 });
 formatter.result({
-  "duration": 2629664200,
+  "duration": 2920361400,
   "status": "passed"
 });
 formatter.match({
   "location": "Parameterized_Test.user_calls_the_AddPlace_API_and_post_with_HTTP_Request()"
 });
 formatter.result({
-  "duration": 2050707300,
+  "duration": 1700274500,
   "status": "passed"
 });
 formatter.match({
@@ -207,7 +207,7 @@ formatter.match({
   "location": "Parameterized_Test.user_get_Status_Code(int)"
 });
 formatter.result({
-  "duration": 53968400,
+  "duration": 46696700,
   "status": "passed"
 });
 formatter.match({
@@ -220,21 +220,21 @@ formatter.match({
   "location": "Parameterized_Test.user_get_the_Status(String)"
 });
 formatter.result({
-  "duration": 667378400,
+  "duration": 775240400,
   "status": "passed"
 });
 formatter.match({
   "location": "Parameterized_Test.user_have_the_Required_Place_id()"
 });
 formatter.result({
-  "duration": 17452900,
+  "duration": 26067300,
   "status": "passed"
 });
 formatter.match({
   "location": "Parameterized_Test.user_request_the_GetPlace_API_by_GET_HTTP_Request()"
 });
 formatter.result({
-  "duration": 1866508700,
+  "duration": 1846629300,
   "status": "passed"
 });
 formatter.match({
@@ -247,14 +247,14 @@ formatter.match({
   "location": "Parameterized_Test.user_should_get_Status_Code(int)"
 });
 formatter.result({
-  "duration": 1840600,
+  "duration": 210100,
   "status": "passed"
 });
 formatter.match({
   "location": "Parameterized_Test.user_Should_get_Response_Body_of_the_Required_Place()"
 });
 formatter.result({
-  "duration": 835700,
+  "duration": 824000,
   "status": "passed"
 });
 });

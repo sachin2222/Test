@@ -1,0 +1,47 @@
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "accuracy": 10,
+    "location": {
+        "lat": -37.899,
+        "lng": 78.87
+    },
+    "name": "Load1",
+    "phone_number": "100",
+    "address": "RestAssured",
+    "types": [
+        "shoes",
+        "Park"
+    ],
+    "website": null,
+    "language": "Hindi"
+}
+HTTP/1.1 200 OK
+Date: Fri, 22 Jan 2021 07:33:02 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "f8181e5c08a9e52ca0001362ba08e5c2",
+    "scope": "APP",
+    "reference": "ae5e5c5a02776ec9949ccc3030f75265ae5e5c5a02776ec9949ccc3030f75265",
+    "id": "ae5e5c5a02776ec9949ccc3030f75265"
+}

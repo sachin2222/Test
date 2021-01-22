@@ -2,14 +2,16 @@ package StepsDef_Paramertized;
 
 import POJO.AddPlace_Serialise_Pojo;
 import Payload.AddPlace_Payload;
+import Utilities.Request_Specifation;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
+
+import java.io.FileNotFoundException;
 
 import static io.restassured.RestAssured.given;
 
@@ -24,14 +26,10 @@ public class Parameterized_Test {
     public   Response get_response;
 
     @Given("^User have Required Payload \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
-    public void user_have_Required_Payload(String arg1, String arg2, String arg3, int arg4, double arg5, double arg6, String arg7, String arg8) {
+    public void user_have_Required_Payload(String name, String address, String website, int accuracy, double longitude, double latitude, String phone_number, String Language) throws FileNotFoundException {
 
-        RestAssured.baseURI = "https://rahulshettyacademy.com";
-
-        AddPlace_Serialise_Pojo pj = AddPlace_Payload.getPojo(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-
-        req_spec = given().relaxedHTTPSValidation().queryParam("key", "qaclick123").body(pj);
-
+        AddPlace_Serialise_Pojo pj = AddPlace_Payload.getPojo(name, address,website, accuracy,longitude,latitude ,phone_number,Language);
+        req_spec = given().spec(Request_Specifation.get_Request_Specifactions_POST()).body(pj);
 
     }
 
@@ -56,22 +54,17 @@ public class Parameterized_Test {
 
         JsonPath js = new JsonPath(response_body);
         String status = js.getString("status");
-        Assert.assertEquals(status, arg1);
+        Assert.assertEquals(status,"OK");
 
 
     }
 
     @Then("^User have the Required Place_id$")
-    public void user_have_the_Required_Place_id() throws Throwable {
+    public void user_have_the_Required_Place_id() throws FileNotFoundException {
 
         JsonPath js=new JsonPath(response_body);
          place_id=js.getString("place_id");
-         System.out.println(place_id);
-
-        RestAssured.baseURI="https://rahulshettyacademy.com";
-
-        req_get= given().queryParam("key","qaclick123").queryParam("place_id",place_id)
-                .relaxedHTTPSValidation();
+        req_get= given().spec(Request_Specifation.get_Request_Specifactions_GET()).queryParam("place_id",place_id);
 
     }
 
@@ -83,7 +76,8 @@ public class Parameterized_Test {
 
     @Then("^User should get Status Code (\\d+)\\.$")
     public void user_should_get_Status_Code(int arg1) throws Throwable {
-        get_response.then().assertThat().statusCode(arg1);
+        int status_code=get_response.getStatusCode();
+        Assert.assertEquals(status_code,200);
 
     }
 
